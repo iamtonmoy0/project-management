@@ -14,7 +14,7 @@ export default function Home() {
     console.log("Failed:", errorInfo);
   };
   return (
-    <div className="container">
+    <div className="w-full h-[450px] flex justify-center items-center">
       <Form
         name="basic"
         labelCol={{ span: 8 }}
@@ -28,7 +28,9 @@ export default function Home() {
         <Form.Item<FieldType>
           label="Email"
           name="email"
-          rules={[{ required: true, message: "Please input your username!" }]}
+          rules={[
+            { required: true, message: "Please input your email address!" },
+          ]}
         >
           <Input />
         </Form.Item>
