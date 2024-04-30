@@ -2,16 +2,16 @@
 
 import React, { useState } from "react";
 import {
-  DesktopOutlined,
   FileOutlined,
-  PieChartOutlined,
+  HomeOutlined,
   TeamOutlined,
   UserOutlined,
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
-import { Breadcrumb, Layout, Menu, theme } from "antd";
+import { Avatar, Layout, Menu, theme } from "antd";
+import Link from "next/link";
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Sider } = Layout;
 
 type MenuItem = Required<MenuProps>["items"][number];
 
@@ -30,8 +30,12 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-  getItem("Option 1", "1", <PieChartOutlined />),
-  getItem("Option 2", "2", <DesktopOutlined />),
+  getItem(
+    "User",
+    "2",
+    <Avatar style={{ backgroundColor: "#87d068" }} icon={<UserOutlined />} />
+  ),
+  getItem("Home", "1", <HomeOutlined />),
   getItem("User", "sub1", <UserOutlined />, [
     getItem("Tom", "3"),
     getItem("Bill", "4"),
@@ -41,10 +45,16 @@ const items: MenuItem[] = [
     getItem("Team 1", "6"),
     getItem("Team 2", "8"),
   ]),
-  getItem("Files", "9", <FileOutlined />),
+  getItem(
+    "Files",
+    "9",
+    <Link href="/dashboard/13">
+      <FileOutlined />
+    </Link>
+  ),
 ];
 
-export default function layout() {
+export default function layout({ children }) {
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer, borderRadiusLG },
@@ -67,25 +77,7 @@ export default function layout() {
         </Sider>
         <Layout>
           <Header style={{ padding: 0, background: colorBgContainer }} />
-          <Content style={{ margin: "0 16px" }}>
-            <Breadcrumb style={{ margin: "16px 0" }}>
-              <Breadcrumb.Item>User</Breadcrumb.Item>
-              <Breadcrumb.Item>Bill</Breadcrumb.Item>
-            </Breadcrumb>
-            <div
-              style={{
-                padding: 24,
-                minHeight: 360,
-                background: colorBgContainer,
-                borderRadius: borderRadiusLG,
-              }}
-            >
-              Bill is a cat.
-            </div>
-          </Content>
-          <Footer style={{ textAlign: "center" }}>
-            Ant Design ©{new Date().getFullYear()} Created by Ant UED
-          </Footer>
+          {children}
         </Layout>
       </Layout>
     </>

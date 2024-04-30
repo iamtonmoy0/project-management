@@ -1,0 +1,114 @@
+{
+	"projects": [
+		{
+			"id": 1,
+			"name": "Project A",
+			"tasks": [
+				{
+					"id": 1,
+					"title": "Task 1",
+					"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+					"status": "pending"
+				},
+				{
+					"id": 2,
+					"title": "Task 2",
+					"description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+					"status": "in progress"
+				},
+				{
+					"id": 3,
+					"title": "Task 3",
+					"description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+					"status": "completed"
+				}
+			]
+		},
+		{
+			"id": 2,
+			"name": "Project B",
+			"tasks": [
+				{
+					"id": 4,
+					"title": "Task 1",
+					"description": "Vivamus suscipit tortor eget felis porttitor volutpat.",
+					"status": "pending"
+				},
+				{
+					"id": 5,
+					"title": "Task 2",
+					"description": "Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.",
+					"status": "in progress"
+				},
+				{
+					"id": 6,
+					"title": "Task 3",
+					"description": "Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+					"status": "completed"
+				}
+			]
+		}
+	],
+	"users": [
+		{
+			"id": 1,
+			"name": "John Doe",
+			"email": "john@example.com",
+			"password": "password123"
+		},
+		{
+			"id": 2,
+			"name": "Jane Smith",
+			"email": "jane@example.com",
+			"password": "pass123"
+		},
+		{
+			"id": 3,
+			"name": "Alice Johnson",
+			"email": "alice@example.com",
+			"password": "alicepass"
+		},
+		{
+			"id": 4,
+			"name": "Bob Brown",
+			"email": "bob@example.com",
+			"password": "bobbypass"
+		},
+		{
+			"id": 5,
+			"name": "Emily Davis",
+			"email": "emily@example.com",
+			"password": "emilypass"
+		},
+		{
+			"id": 6,
+			"name": "Michael Wilson",
+			"email": "michael@example.com",
+			"password": "michaelpass"
+		},
+		{
+			"id": 7,
+			"name": "Sophia Martinez",
+			"email": "sophia@example.com",
+			"password": "sophiapass"
+		},
+		{
+			"id": 8,
+			"name": "James Taylor",
+			"email": "james@example.com",
+			"password": "jamespass"
+		},
+		{
+			"id": 9,
+			"name": "Olivia Anderson",
+			"email": "olivia@example.com",
+			"password": "oliviapass"
+		},
+		{
+			"id": 10,
+			"name": "Daniel Jackson",
+			"email": "daniel@example.com",
+			"password": "danielpass"
+		}
+	]
+}
