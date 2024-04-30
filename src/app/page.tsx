@@ -2,10 +2,14 @@
 import { FieldType } from "@/types/formType";
 import { Button, Form, Input, Checkbox } from "antd";
 import type { FormProps } from "antd";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
+  
   const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
     console.log("Success:", values);
+    router.push("/dashboard");
   };
 
   const onFinishFailed: FormProps<FieldType>["onFinishFailed"] = (
