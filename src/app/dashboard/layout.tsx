@@ -75,8 +75,8 @@ export default function layout({ children }) {
             items={items}
           />
         </Sider>
-        <Layout>
-          <Header style={{ padding: 0, background: colorBgContainer }} />
+        <Layout className="h-auto">
+          {/* <Header style={{ padding: 0, background: colorBgContainer }} /> */}
           {children}
         </Layout>
       </Layout>

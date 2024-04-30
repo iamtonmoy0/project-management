@@ -1,5 +1,6 @@
 "use client";
 
+import Card from "@/components/Card/Card";
 import { useQuery } from "@tanstack/react-query";
 
 export default function Dashboard() {
@@ -17,6 +18,14 @@ export default function Dashboard() {
       }
     },
   });
-  console.log(data);
-  return <div> ok </div>;
+  // console.log(data);
+  return (
+    <div className=" mx-4 ">
+      <div className=" pt-6 grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8  overflow-y-auto ">
+        {data && data.length > 0
+          ? data.map((p) => <Card key={p.id} project={p} />)
+          : null}
+      </div>
+    </div>
+  );
 }

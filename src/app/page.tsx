@@ -40,9 +40,10 @@ export default function Home() {
     content = null;
   }
   return (
-    <div className="w-full h-[450px]  justify-center items-center">
+    <div className="w-auto h-[450px]  flex">
       <div>{content}</div>
-      <div className="ml-[300px] pt-[100px]">
+      <div className="mx-auto pt-[100px]">
+        <p className="text-center mb-6 font-semibold text-gray-700 text-3xl">Login Here!</p>
         <Form
           name="basic"
           labelCol={{ span: 8 }}
@@ -82,7 +83,7 @@ export default function Home() {
 
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
             <Button type="primary" htmlType="submit">
-              Submit
+              Login
             </Button>
           </Form.Item>
         </Form>
