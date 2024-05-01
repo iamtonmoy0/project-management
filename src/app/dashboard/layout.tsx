@@ -6,10 +6,7 @@ export default function layout({ children }: any) {
     <>
       <Layout style={{ minHeight: "100vh" }}>
         <Slider />
-        <Layout className="h-auto">
-          {/* <Header style={{ padding: 0, background: colorBgContainer }} /> */}
-          {children}
-        </Layout>
+        <Layout className="h-auto">{children}</Layout>
       </Layout>
     </>
   );
