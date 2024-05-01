@@ -8,7 +8,7 @@ export default function Dashboard() {
     queryKey: ["projects"],
     queryFn: async () => {
       try {
-        const response = await fetch("http://localhost:3001/projects");
+        const response = await fetch("/project.json");
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }

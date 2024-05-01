@@ -1,6 +1,5 @@
 "use client";
 
-import React, { useState } from "react";
 import {
   FileOutlined,
   HomeOutlined,
@@ -20,6 +19,7 @@ import {
 } from "antd";
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 
 const { Header, Sider } = Layout;
 
@@ -45,16 +45,23 @@ const items: MenuItem[] = [
     "2",
     <Avatar style={{ backgroundColor: "#87d068" }} icon={<UserOutlined />} />
   ),
-  getItem("Home", "1", <Link href={"/dashboard"}><HomeOutlined /></Link>),
+  getItem(
+    "Home",
+    "1",
+    <Link href={"/dashboard"}>
+      <HomeOutlined />
+    </Link>
+  ),
 ];
 
 export default function layout({ children }) {
   const [collapsed, setCollapsed] = useState(false);
+
   const { data, isLoading, isError, isSuccess } = useQuery<any>({
     queryKey: ["projects"],
     queryFn: async () => {
       try {
-        const response = await fetch("http://localhost:3001/projects");
+        const response = await fetch("project.json");
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
