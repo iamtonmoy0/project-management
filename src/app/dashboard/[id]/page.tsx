@@ -11,7 +11,7 @@ const { Title, Text } = Typography;
 export default function SingleTask() {
   const { id } = useParams();
   const [open, setOpen] = useState(false);
-  const [project, setProject] = useState<any>({});
+  const [project, setProject] = useState<any>(null);
 
   const showDrawer = () => {
     setOpen(true);
@@ -20,6 +20,7 @@ export default function SingleTask() {
   const onClose = () => {
     setOpen(false);
   };
+
   const { data, isLoading, isError, isSuccess } = useQuery({
     queryKey: ["task"],
     queryFn: async () => {
@@ -35,23 +36,16 @@ export default function SingleTask() {
     },
   });
   useEffect(() => {
-    if (isSuccess && data && data.length > 0) {
-      const foundProject = data.find((item: any) => item.id === id);
-      if (foundProject) {
-        setProject(foundProject);
+    if (data && data.length > 0) {
+      const task = data.find((item: any) => item.id === Number(id));
+      if (task) {
+        setProject(task);
       }
     }
-  }, [isSuccess, data, id]);
+  }, [data, id]);
+
   let content = null;
-  if (isLoading) {
-    content = (
-      <div className="mx-auto my-auto">
-        <Spin />
-      </div>
-    );
-  } else if (isError) {
-    content = <p>error</p>;
-  } else {
+  if (project) {
     content = (
       <>
         <Drawer title="Project Activity" onClose={onClose} open={open}>
