@@ -19,5 +19,5 @@ export default function SingleTask() {
       }
     },
   });
-  return <div>{id}</div>;
+  return <div>{JSON.stringify(data)}</div>;
 }
