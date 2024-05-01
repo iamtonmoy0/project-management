@@ -3,7 +3,7 @@ import React from "react";
 import { AntDesignOutlined, UserOutlined } from "@ant-design/icons";
 import Link from "next/link";
 
-export default function Card({ project }) {
+export default function Card({ project }: any) {
   return (
     <Link href={`/dashboard/${project.id}`}>
       <article className="hover:animate-background rounded-xl bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 p-0.5 shadow-xl transition hover:bg-[length:400%_400%] hover:shadow-sm hover:[animation-duration:_4s]">
@@ -21,7 +21,7 @@ export default function Card({ project }) {
 
           <div className="mt-4 flex flex-wrap gap-1">
             <Avatar.Group maxCount={3}>
-              {project.teamMembers?.map((m) => (
+              {project.teamMembers?.map((m: any) => (
                 <Tooltip key={m} title={m} placement="top">
                   <Avatar
                     style={{ backgroundColor: "#87d068" }}

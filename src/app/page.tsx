@@ -5,6 +5,8 @@ import type { FormProps } from "antd";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+
+
 export default function Home() {
   const router = useRouter();
   const [success, setSuccess] = useState(false);
@@ -12,7 +14,7 @@ export default function Home() {
   let email = "user@user.com";
   let password = "123456";
 
-  const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
+  const onFinish: FormProps<FieldType>["onFinish"] = (values: any) => {
     if (values.email == email && values.password == password) {
       setSuccess(true);
       router.push("/dashboard");
@@ -43,7 +45,9 @@ export default function Home() {
     <div className="w-auto h-[450px]  flex">
       <div>{content}</div>
       <div className="mx-auto pt-[100px]">
-        <p className="text-center mb-6 font-semibold text-gray-700 text-3xl">Login Here!</p>
+        <p className="text-center mb-6 font-semibold text-gray-700 text-3xl">
+          Login Here!
+        </p>
         <Form
           name="basic"
           labelCol={{ span: 8 }}
@@ -55,7 +59,7 @@ export default function Home() {
           autoComplete="off"
           className=""
         >
-          <Form.Item<FieldType>
+          <Form.Item
             label="Email"
             name="email"
             rules={[
