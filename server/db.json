@@ -4,6 +4,7 @@
 			"id": 1,
 			"name": "Project A",
 			"date": "2024-05-01",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
 			"teamMembers": [
 				"Alice",
 				"Bob",
@@ -37,6 +38,7 @@
 			"id": 2,
 			"name": "Project B",
 			"date": "2024-05-05",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
 			"teamMembers": [
 				"Alice",
 				"David"
@@ -69,6 +71,7 @@
 			"id": 3,
 			"name": "Project C",
 			"date": "2024-05-10",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
 			"teamMembers": [
 				"Bob",
 				"Eve"
