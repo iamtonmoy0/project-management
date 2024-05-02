@@ -26,7 +26,7 @@ export default function Filter() {
   return (
     <>
       <div className="flex flex-row gap-3 pt-2">
-        <Button type="primary" className="bg-blue-500" size="small">
+        <Button type="primary" className="bg-blue-500" size="large">
           Create New
         </Button>
         <div className="relative">

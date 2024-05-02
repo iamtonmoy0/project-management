@@ -8,6 +8,7 @@ import { Button, Drawer, Spin, Typography } from "antd";
 import Activity from "@/components/Activity/Activity";
 import UnderBar from "@/components/UnderBar/UnderBar";
 import Filter from "@/components/Filter/Filter";
+import TaskBody from "@/components/Task/Task";
 
 const { Title, Text } = Typography;
 export default function SingleTask() {
@@ -71,6 +72,8 @@ export default function SingleTask() {
         </div>
         <UnderBar user={project.teamMembers} />
         <Filter />
+
+        <TaskBody taskData={project.tasks} />
       </>
     );
   }
