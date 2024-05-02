@@ -1,7 +1,7 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 
@@ -16,21 +16,38 @@ const TASK_STATUSES = {
 //   { id: 2, title: "Task 2", status: TASK_STATUSES.IN_PROGRESS },
 //   { id: 3, title: "Task 3", status: TASK_STATUSES.DONE },
 // ];
+interface DragItem {
+  id: number;
+  index: number;
+}
 
-const Task = ({ task, index, moveTask }: any) => {
-  const [{ isDragging }, drag] = useDrag({
+const Task: React.FC<{ task: any; index: number; moveTask: any }> = ({
+  task,
+  index,
+  moveTask,
+}: any) => {
+  const dragRef = useRef<HTMLDivElement>(null);
+  const [{ isDragging }, drag] = useDrag<
+    DragItem,
+    void,
+    { isDragging: boolean }
+  >({
     type: "task",
     item: { id: task.id, index },
     collect: (monitor) => ({
       isDragging: monitor.isDragging(),
     }),
   });
-
+  React.useEffect(() => {
+    if (dragRef.current) {
+      drag(dragRef.current);
+    }
+  }, [drag]);
   const opacity = isDragging ? 0.5 : 1;
 
   return (
     <div
-      ref={drag}
+      ref={dragRef}
       style={{
         opacity,
         padding: "8px",
@@ -47,6 +64,7 @@ const Task = ({ task, index, moveTask }: any) => {
 };
 
 const Column = ({ status, tasks, moveTask }: any) => {
+  const dropRef = useRef<HTMLDivElement>(null);
   const [{ canDrop, isOver }, drop] = useDrop({
     accept: "task",
     drop: (item: any, monitor) => {
@@ -57,12 +75,16 @@ const Column = ({ status, tasks, moveTask }: any) => {
       canDrop: monitor.canDrop(),
     }),
   });
-
+  React.useEffect(() => {
+    if (dropRef.current) {
+      drop(dropRef.current);
+    }
+  }, [drop]);
   const isActive = canDrop && isOver;
 
   return (
     <div
-      ref={drop}
+      ref={dropRef}
       style={{
         flex: "1",
         padding: "8px",
@@ -107,10 +129,10 @@ const TaskBoard = () => {
     }
   }, [data, id]);
   const moveTask = (id: any, newStatus: any) => {
-    const updatedTasks = tasks?.map((task: any) =>
+    const updatedTasks: any = tasks?.map((task: any) =>
       task.id === id ? { ...task, status: newStatus } : task
     );
-    setTasks(updatedTasks  );
+    setTasks(updatedTasks);
   };
 
   const todoTasks = tasks?.filter(

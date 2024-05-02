@@ -73,7 +73,7 @@ export default function SingleTask() {
         <UnderBar user={project.teamMembers} />
         <Filter />
 
-        <TaskBody taskData={project.tasks} />
+        <TaskBody  />
       </>
     );
   }
